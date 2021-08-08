@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_07_143036) do
+ActiveRecord::Schema.define(version: 2021_08_08_144101) do
 
   create_table "recognitions", force: :cascade do |t|
     t.integer "recognizer_id"
@@ -25,6 +25,9 @@ ActiveRecord::Schema.define(version: 2021_08_07_143036) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "recognition"
+    t.string "string"
+    t.string "description"
   end
 
 end
