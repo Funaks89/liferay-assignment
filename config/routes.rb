@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   get '/dashboard', to:'dashboard#show', as: 'Dashboard'
   get '/user/:id', to: 'user#show', as: 'User' 
   get '/recognition/new', to: 'recognition#new'
+  post 'recognition', to: 'recognition#create'
+  get 'recognition/:id/edit', to: 'recognition#edit'
 
 end
