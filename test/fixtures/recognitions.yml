@@ -1,15 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  id: 1
-  recognizer_id: 1
-  recognized_id: 1
-  name: MyString
   description: MyString
+  recognized: one
+  recognizer: one
 
 two:
-  id: 1
-  recognizer_id: 1
-  recognized_id: 1
-  name: MyString
   description: MyString
+  recognized: two
+  recognizer: two

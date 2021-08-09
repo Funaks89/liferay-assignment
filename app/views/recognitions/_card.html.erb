@@ -1,0 +1,6 @@
+<div class="card card-index-sm" style="">
+  <% @recognitions_gave.each do |recognition| %>
+    <h4><%= recognition.recognized.name %></h4>
+    <p><strong><%= recognition.name %>:</strong> <%= recognition.description %></p>
+  <% end %>
+</div>

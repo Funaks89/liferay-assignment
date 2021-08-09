@@ -1,3 +1,8 @@
  <% @users.each do |user| %>
-    <h2><%= user.name %> <%= user.recognitions %></h2>
+    <h4><%= user.name %> </h4>
+    <ul>
+      <% user.recognitions_gave.each do |recognition| %>
+      <li><%= recognition.name %>. <%= recognition.description %></li>
+      <% end %>
+    </ul>
   <% end %>

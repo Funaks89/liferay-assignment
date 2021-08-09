@@ -1,5 +1,9 @@
 class User < ApplicationRecord
-  has_many :recognitions
-  has_many :recognizer, class_name: 'Recognition', foreign_key: :recognizer_id
-  has_many :recognitions, class_name: 'Recognition', foreign_key: :recognized_id
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+
+has_many :recognitions_gave, class_name: 'Recognition', foreign_key: :recognizer_id
+has_many :recognitions_recieved, class_name: 'Recognition', foreign_key: :recognized_id
 end

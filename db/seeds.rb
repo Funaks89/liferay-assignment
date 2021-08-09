@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 20.times do 
-user = User.new(name: Faker::JapaneseMedia::DragonBall.character)
+user = User.new(name: Faker::JapaneseMedia::DragonBall.character, email: Faker::Internet.email, password: '123123')
 user.save || next
 end
 

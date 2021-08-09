@@ -1,7 +1,9 @@
-<%= form_for @recognition do |f| %>
-  <%= f.label :name, "Which employee do you want to give a recognition?" %>
-  <%= f.text_field :name %>
-  <%= f.label :description, "Why do you want to give him/her recognition?" %>
-  <%= f.text_field :description %>
-  <%= f.submit %>
-<% end %>
+<div class='form-card'>
+  <%= form_for [User.find(params[:user_id]), @recognition] do |f| %>
+    <%= f.label :name, "What is this skill you want to recognize?" %>
+    <%= f.text_field :name %>
+    <%= f.label :description, "What kind of recognition do you want to give him/her?" %>
+    <%= f.text_field :description %>
+    <%= f.submit %>
+  <% end %>
+</div>  

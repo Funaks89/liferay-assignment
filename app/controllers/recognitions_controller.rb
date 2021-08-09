@@ -1,15 +1,19 @@
 class RecognitionsController < ApplicationController
   def new
+    # initialize a recogntion instance
     @recognition = Recognition.new
   end
 
   def create
+    # Create Recognition
     @recognition = Recognition.new(recognition_params)
+    @recognition.recognizer = current_user
+    @recognition.recognized = User.find(params[:user_id])
     @recognition.save
-    @recognition.recognized = @user
+    # @recognition_recognized = @user.description
     # @recognition.recognizer = current_user
 
-    redirect_to recognitions_new_path(@user)
+    redirect_to dashboard_path
   end
 
   def edit
@@ -17,6 +21,8 @@ class RecognitionsController < ApplicationController
   end
 
   private
+
+  # make parameters for User and recognition creations
   def set_user
     @user = User.find(params[:id])
   end

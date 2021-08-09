@@ -10,24 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_08_144101) do
+ActiveRecord::Schema.define(version: 2021_08_09_133023) do
 
   create_table "recognitions", force: :cascade do |t|
-    t.integer "recognizer_id"
-    t.integer "recognized_id"
-    t.string "name"
     t.string "description"
+    t.integer "recognized_id", null: false
+    t.integer "recognizer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.index ["recognized_id"], name: "index_recognitions_on_recognized_id"
+    t.index ["recognizer_id"], name: "index_recognitions_on_recognizer_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "recognition"
-    t.string "string"
-    t.string "description"
+    t.string "name"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "recognitions", "users", column: "recognized_id"
+  add_foreign_key "recognitions", "users", column: "recognizer_id"
 end

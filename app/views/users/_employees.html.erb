@@ -1,0 +1,8 @@
+  <div class="card card-index-sm">
+    <% @employees.each do |employee| %>
+      <%= link_to new_user_recognition_path(employee) do %>
+        <h3><%= employee.name %></h3>
+      <% end %>
+    <% end %>
+  
+  </div>
