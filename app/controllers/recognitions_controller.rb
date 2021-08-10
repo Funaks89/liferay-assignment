@@ -12,7 +12,7 @@ class RecognitionsController < ApplicationController
     @recognition.save
     # @recognition_recognized = @user.description
     # @recognition.recognizer = current_user
-
+    #when a new Recognition is saved redirect to users dashboard
     redirect_to dashboard_path
   end
 
